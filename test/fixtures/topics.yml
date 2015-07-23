@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  tid: MyString
+  slary: MyString
+  area: MyString
+  pubtime: 2015-07-23 19:46:22
+
+two:
+  tid: MyString
+  slary: MyString
+  area: MyString
+  pubtime: 2015-07-23 19:46:22

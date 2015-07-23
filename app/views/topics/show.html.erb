@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Tid:</strong>
+  <%= @topic.tid %>
+</p>
+
+<p>
+  <strong>Slary:</strong>
+  <%= @topic.slary %>
+</p>
+
+<p>
+  <strong>Area:</strong>
+  <%= @topic.area %>
+</p>
+
+<p>
+  <strong>Pubtime:</strong>
+  <%= @topic.pubtime %>
+</p>
+
+<%= link_to 'Edit', edit_topic_path(@topic) %> |
+<%= link_to 'Back', topics_path %>
