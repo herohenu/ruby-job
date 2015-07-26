@@ -1,6 +1,7 @@
 require 'rest-client'
 require 'nokogiri'     
-task  :start2  do 
+
+task  start2:   :environment do	
 puts ' start 2   ------>'
 total = []
 
@@ -19,9 +20,10 @@ total = []
 			classarr = values.split(' ')
 			topic_id = classarr.last
 			tids = topic_id.split('-').last
+			puts  tids
+			Topic.create(:tid => tids.to_i)
 			arr.push tids			
 		end
-
 	   # p   ' current_page '  +  index.to_s  +  ' topic ids  :' ,arr
                 total.push arr
 end
