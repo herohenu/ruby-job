@@ -11,6 +11,9 @@ get job topics  and get trend  of  ruby
 1.按照城市
 2.按照薪资
 3.remote
+4.帖子浏览次数
+5.回帖次数
+
 
 4.发帖频率
 5.相同发帖人合并
@@ -21,4 +24,11 @@ get job topics  and get trend  of  ruby
 2.1 mongodb加入gem
 2.2 连接存储
 
-3 活取帖子
+3 获取帖子内容
+########################33
+title
+created_at
+replies_count
+hit
+node_name
+
