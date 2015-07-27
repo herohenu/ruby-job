@@ -1,6 +1,7 @@
 require 'rest-client'
 require 'nokogiri'     
 
+
 task  start2:   :environment do	
 puts ' start 2   ------>'
 total = []
