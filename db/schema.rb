@@ -17,9 +17,26 @@ ActiveRecord::Schema.define(version: 20150723114622) do
     t.string   "tid"
     t.string   "slary"
     t.string   "area"
-    t.datetime "pubtime"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "company"
+    t.string   "level"
+    t.string   "title"
+    t.datetime "pub_created_at"
+    t.datetime "pub_updated_at"
+    t.datetime "replied_at"
+    t.integer  "replies_count"
+    t.string   "node_name"
+    t.integer  "node_id"
+    t.integer  "last_reply_user_id"
+    t.string   "last_reply_user_login"
+    t.string   "user"
+    t.string   "deleted"
+    t.string   "abilities"
+    t.text     "body"
+    t.text     "body_html"
+    t.integer  "hits"
+    t.boolean  "isdeal"
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
   end
 
 end
