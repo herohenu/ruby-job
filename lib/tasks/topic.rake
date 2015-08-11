@@ -122,10 +122,13 @@ task step3: :environment do
      end
 
 
-
-
    end
 
 
 
 end
+
+#select  city is nil
+#Topic.where("area  is  NULL " ).count
+#Topic.where("area  is ? ",nil ).count
+#Topic.where("title like ? ",'%北京%' ).count
