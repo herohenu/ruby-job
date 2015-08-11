@@ -95,3 +95,37 @@ def arry_insert
 end
 ## get topic has been removed 
 #  tids = Topic.where(isdeal:false).pluck(:tid)
+
+
+desc "set  city"
+task step3: :environment do
+   topics = {}
+   topicArr= Topic.all.pluck(:id , :title)
+   topicArr.each do |topic |
+
+     tid = topic[0]
+     title = topic[1]
+     if   !title.nil? && !title.empty?
+       reg = /\[[^\]]*\]/
+
+       city = title.match  reg
+       city = city.to_s
+
+       #puts "#{tid} is  ------->  #{city}"
+       #puts  city.nil? ,  city.to_s.empty? , city.length
+
+       if  !city.nil? &&  !(city.empty?) && city.length >=4
+         area = city[1..-2]
+         puts  "#{tid}  ----> #{area} "
+         Topic.find(tid).update(:area =>city )
+       end
+     end
+
+
+
+
+   end
+
+
+
+end
