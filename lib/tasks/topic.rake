@@ -20,7 +20,9 @@ task step1: :environment do
       topic_id = classarr.last
       tids = topic_id.split('-').last
       #todo  add if is exists  in db
-      Topic.create(:tid => tids.to_i)
+      if(! Topic.exists?(tids.to_i))
+        Topic.create(:tid => tids.to_i)
+      end
       arr.push tids
     end
     total.push arr
@@ -101,13 +103,18 @@ desc "set  city"
 task step3: :environment do
    topics = {}
    topicArr= Topic.all.pluck(:id , :title)
+
+   open("city.txt" , 'a') do  |f|
+
+
+
    topicArr.each do |topic |
 
      tid = topic[0]
      title = topic[1]
      if   !title.nil? && !title.empty?
        reg = /\[[^\]]*\]/
-
+       reg =/【[^】]*】|\[[^\[\]]*\]/
        city = title.match  reg
        city = city.to_s
 
@@ -116,14 +123,12 @@ task step3: :environment do
 
        if  !city.nil? &&  !(city.empty?) && city.length >=4
          area = city[1..-2]
-         puts  "#{tid}  ----> #{area} "
+         f.puts  "#{tid}  ----> #{area} "
          Topic.find(tid).update(:area =>city )
        end
      end
-
-
    end
-
+   end
 
 
 end
@@ -132,3 +137,10 @@ end
 #Topic.where("area  is  NULL " ).count
 #Topic.where("area  is ? ",nil ).count
 #Topic.where("title like ? ",'%北京%' ).count
+# Topic.select(:area).distinct
+#topic.created_at.strftime('%Y-%m-%d')
+
+# Topic.where("area like ? " , "%#{city}%").update_all(:area => "#{city}")
+# arr = "北京 上海 杭州 成都 深圳 广州 南京 武汉 西安 大连 重庆 青岛"
+
+
